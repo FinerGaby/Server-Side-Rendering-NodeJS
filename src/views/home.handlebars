@@ -1,0 +1,37 @@
+<article class="numbertotal">
+  <div>
+  <span class="numbert"><i class="far fa-file-code"></i> {{this.numberpost}}</span><br />
+    <span class="total">temas totales</span>
+    </div>
+      <div>
+  <span class="numbert"><i class="far fa-comments"></i>  {{this.numbercomment}}</span><br />
+    <span class="total">mensajes totales</span>
+    </div>
+      <div>
+  <span class="numbert"><i class="fas fa-users"></i>  1</span><br />
+    <span class="total">usuario registrados</span>
+    </div>
+</article>
+
+
+<div class="thead">Preguntas e Dudas</div>
+<div class="todo-posts">
+{{#each usersreverse}}
+<div class="los-posteos">
+<div class="el-icono"><i class="far fa-file-code"></i></div>
+<div class="titulo"><a href="posts/{{this._id}}">{{this.titulo}}</a><br />
+<span>Por: {{this.userid}} - {{this.fecha}}</span>
+</div>
+<div class="cheboxes">
+  <ul>
+  {{#each categoria}}
+    <li class="{{this}}">{{this}}</li>
+  {{/each}}
+  </ul>
+</div>
+<div class="editar"><a href="/editar/{{this._id}}"><i class="fas fa-edit"></i></a></div>
+</div>
+
+
+{{/each}}
+</div>

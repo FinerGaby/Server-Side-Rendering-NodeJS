@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,800" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+        integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <title>Mesa de Ayuda</title>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <a href="/"><i class="fab fa-node-js"></i></a>
+        </div>
+        <div class="button-new-post">
+            <a href="/nuevo"><i class="fas fa-bug"></i> Nuevo Tema</a>
+        </div>
+        <div class="usuario-logeado">
+            <img src="https://pbs.twimg.com/profile_images/633758246906388480/6s9zF7az_400x400.jpg"
+                class="avatar-header"> <i class="far fa-user"></i> {{this.usuario}} - {{this.avatar}}
+        </div>
+    </header>
+    <section class="menu-costado">
+        <article class="order1">
+            <nav>
+                <ul>
+                    <li><i class="fas fa-home"></i><br /> Home</li>
+                    <li><i class="fas fa-users"></i><br /> Miembros</li>
+                    <li><i class="fas fa-calendar-alt"></i><br /> Calendario</li>
+                    <li><i class="fas fa-book-medical"></i><br /> Guias</li>
+                    <li><i class="fas fa-coffee"></i><br /> Coffe</li>
+                    <li><i class="far fa-envelope"></i><br /> Contacto</li>
+                </ul>
+            </nav>
+        </article>
+
+        <article class="order2">
+            <div class="navegacion-simple">
+                <h2>Comunidad IT</h2>
+                <span>Mesa de ayuda - Curso Node JS</span>
+            </div>
+            {{{body}}}
+        </article>
+    </section>
+    <footer>
+        <div class="fotter-text">Proyecto Comunidad IT - Node JS</div>
+        <div class="social">
+            <ul>
+                <li><i class="fab fa-node"></i></li>
+                <li><i class="fab fa-github"></i></li>
+                <li><i class="fab fa-linkedin"></i></li>
+                <li><i class="fab fa-instagram"></i></li>
+
+            </ul>
+        </div>
+    </footer>
+</body>
+
+</html>

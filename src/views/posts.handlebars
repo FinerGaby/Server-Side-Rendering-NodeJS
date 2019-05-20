@@ -1,0 +1,52 @@
+<div class="thead">{{post.titulo}}</div>
+<div class="flex-post">
+  <div class="el-author">
+    <div class="avatar2">
+      <img class="avatar" src="{{post.avatar}}" />
+    </div>
+    {{post.userid}}
+  </div>
+  <div class="texto-post">
+    <div class="mini-titulo">{{post.titulo}}</div>
+    {{post.texto}}
+  </div>
+</div>
+
+{{#each commentList}}
+<div class="flex-post commentarios">
+  <div class="el-author">
+    <div class="avatar2">
+      <img class="avatar" src="{{this.avatarcooment}}" />
+    </div>
+    {{this.userid}}
+  </div>
+  <div class="texto-post">
+    <div class="mini-titulo">Comentario: {{userid}}</div>
+    {{this.comentario}}
+  </div>
+</div>
+
+{{/each}}
+
+
+
+
+<div class="form-cooment">
+  <div class="thead">Deja tu comentario</div>
+  <form action="/crearnuevo/comentario" method="post">
+    <div>
+      <input type="hidden" name="avatarcooment" id="postsid" value="{{post.avatar}}" required>
+      <input type="hidden" name="postsid" id="postsid" value="{{post._id}}" required>
+    </div>
+    <div>
+      <input type="hidden" name="userid" id="userid" value="{{post.userid}}" required>
+    </div>
+    <div>
+      <textarea class="textareanew" name="comentario" id="comentario" rows="15" cols="115"></textarea>
+    </div>
+
+    <div class="botoncrear">
+      <input type="submit" value="Comentario">
+    </div>
+  </form>
+</div>

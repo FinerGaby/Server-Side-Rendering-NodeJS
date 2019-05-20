@@ -1,0 +1,28 @@
+
+<div class="nuevotema">
+  <div class="thead">Nuevo Tema</div>
+    <form action="/editar/post" method="post">
+      <div>
+          <input type="text" name="idtest" id="idtest" value="{{posts._id}}" required>
+       </div>
+      <div class="titulo-post">
+       <label for="titulo">titulo del post</label>
+    <input type="text" name="titulo" id="titulo" value="{{posts.titulo}}" required>
+    </div>
+       <div class="cheboxes-newpost">
+        <ul>
+            <li><input type="checkbox" name="categoria[0]" value="javascript">javascript<br></li>
+            <li><input type="checkbox" name="categoria[1]" value="html">html<br></li>
+            <li><input type="checkbox" name="categoria[2]" value="css" checked>css<br> </li>
+            <li><input type="checkbox" name="categoria[3]" value="react" checked>react<br> </li>
+        </ul>
+    </div>
+        <div class="label-texto">
+            <textarea class="textareanew" name="texto" id="texto"  rows="15" cols="115">{{posts.texto}}</textarea>
+        </div>
+        <div class="botoncrear"><input type="submit" value="Editar"></div>
+  </form>
+</div>
+
+
+

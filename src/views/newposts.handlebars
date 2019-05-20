@@ -1,0 +1,39 @@
+<div class="nuevotema">
+  <div class="thead">Nuevo Tema</div>
+  <form action="/crearnuevo/post" method="post">
+    <div>
+      <label id="idtest" for="idtest">id user:</label>
+      <input type="text" name="idtest" id="idtest" value="{{users._id}}" required>
+    </div>
+    <div>
+      <label id="userid" for="avatar">nombre del avatar:</label>
+      <input type="text" name="avatar" id="userid" value="{{users.avatar}}" required>
+    </div>
+    <div>
+      <label id="userid" for="userid">nombre del usuario:</label>
+      <input type="text" name="userid" id="userid" value="{{this.usuario}}" required>
+    </div>
+    <div class="titulo-post">
+      <input type="text" name="titulo" id="titulo" required>
+    </div>
+    <div class="cheboxes-newpost">
+      <ul>
+        <li><input type="checkbox" name="categoria[0]" value="javascript">javascript<br></li>
+        <li><input type="checkbox" name="categoria[1]" value="html">html<br></li>
+        <li><input type="checkbox" name="categoria[2]" value="css" checked>css<br> </li>
+        <li><input type="checkbox" name="categoria[3]" value="react" checked>react<br> </li>
+      </ul>
+    </div>
+    <div class="label-texto">
+      <textarea class="textareanew" name="texto" id="texto" rows="15" cols="115"></textarea>
+    </div>
+    <input type="hidden" name="fecha" id="date">
+    <div class="botoncrear"> <input type="submit" value="Crear">
+    </div>
+  </form>
+</div>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.14.1/moment.min.js"></script>
+<script>document.getElementById("date").value = moment().format('LLL');</script>
