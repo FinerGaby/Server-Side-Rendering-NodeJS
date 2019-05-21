@@ -73,9 +73,15 @@ app.get("/", function(req, res) {
         const usersreverse = users.reverse();
         console.log(numbercomment);
         console.log(numberpost);
+        let userInfo;
         if (req.session.userId !== undefined) {
+          userInfo = {
+            userId: req.session.userId,
+            userUsuario: req.session.userUsuario,
+            userAvatar: req.session.userAvatar
+          }
         res.render("home", {
-          usuario: req.session.userId,
+          userInfo: userInfo,
           numbercomment: numbercomment,
           numberpost: numberpost,
           usersreverse: usersreverse
@@ -84,7 +90,12 @@ app.get("/", function(req, res) {
     
         // Si mi usuarix tipeó "localhost:3000/home" en la barra de direcciones del navegador y
         // no tenía una sesión activa, lo redirijo a la página que tiene el login.
-        res.redirect("/login");
+        res.render("home", {
+          userInfo: userInfo,
+          numbercomment: numbercomment,
+          numberpost: numberpost,
+          usersreverse: usersreverse
+        });
     
       }
       });
@@ -127,20 +138,35 @@ app.get("/posts/:id", function(req, res) {
         // console.log(titulo)
         //console.log(posts);
         // console.log(err)
-
+ 
         let coleccion = db.collection("comentarios");
         //coleccion.findOne({ }, (err, users) => {
         coleccion
           .find({ _idpost: post._id.toString() })
           .toArray((err, commentList) => {
-            console.log(post.id);
+        console.log(post.id);
             console.log(post._id);
             console.log(commentList);
+            let userInfo;
+            if (req.session.userId !== undefined) {
+              userInfo = {
+                userId: req.session.userId,
+                userUsuario: req.session.userUsuario,
+                userAvatar: req.session.userAvatar
+              }
             res.render("posts", {
+              userInfo: userInfo,
               id: id,
               post: post,
               commentList: commentList
             });
+          } else {
+    
+            // Si mi usuarix tipeó "localhost:3000/home" en la barra de direcciones del navegador y
+            // no tenía una sesión activa, lo redirijo a la página que tiene el login.
+            res.redirect("/login");
+        
+          }
           });
       }
     );
@@ -196,9 +222,15 @@ app.get("/nuevo", function(req, res) {
 
     coleccion.findOne(function(err, users) {
       console.log(users);
+      let userInfo;
       if (req.session.userId !== undefined) {
+        userInfo = {
+          userId: req.session.userId,
+          userUsuario: req.session.userUsuario,
+          userAvatar: req.session.userAvatar
+        }
       res.render("newposts", { 
-        usuario: req.session.userId,
+        userInfo: userInfo,
         users: users 
       });
     } else {
@@ -353,9 +385,12 @@ app.post('/login/form', function (req, res) {
     //filtro coleccion segun el nombre de usuario y password
     coleccion.find( { usuario: usuario, password: password }).toArray(function(err, data) {
       if (data.length == 1) {
+        console.log(data);
         // Si encontró un solo registro con ese usuario y clave
         // Callback para invocar si validó bien. Guarda la sesión e indica navegar al home.
-        req.session.userId = req.body.usuario;
+        req.session.userId = data[0]._id;
+        req.session.userUsuario = data[0].usuario;
+        req.session.userAvatar = data[0].avatar;
         res.redirect('/');
         } else {
         // Si lo que ingresaste es incorrecto

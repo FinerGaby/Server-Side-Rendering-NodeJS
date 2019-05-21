@@ -35,11 +35,11 @@
   <div class="thead">Deja tu comentario</div>
   <form action="/crearnuevo/comentario" method="post">
     <div>
-      <input type="hidden" name="avatarcooment" id="postsid" value="{{post.avatar}}" required>
+      <input type="hidden" name="avatarcooment" id="postsid" value="{{userInfo.userAvatar}}" required>
       <input type="hidden" name="postsid" id="postsid" value="{{post._id}}" required>
     </div>
     <div>
-      <input type="hidden" name="userid" id="userid" value="{{post.userid}}" required>
+      <input type="hidden" name="userid" id="userid" value="{{userInfo.userUsuario}}" required>
     </div>
     <div>
       <textarea class="textareanew" name="comentario" id="comentario" rows="15" cols="115"></textarea>

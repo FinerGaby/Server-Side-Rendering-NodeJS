@@ -11,6 +11,7 @@ APP Mesa de ayuda ( CRUD )
   - Handlebars
   - Node Js
   - Express
+  - Express Session
   - MongoDB
   - Morgan
 

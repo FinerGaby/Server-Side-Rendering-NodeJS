@@ -136,7 +136,7 @@ header {
 
 .logo {
   order: 0;
-  width: 73px;
+  width: 6.3%;
   text-align: center;
   line-height: 60px;
   background: #3b21a0;
@@ -148,19 +148,31 @@ header {
 }
 
 .button-new-post {
-  padding: 8px 18px;
-  margin-top: 11px;
-  margin-bottom: 5px;
-  height: 18px;
-  order: 1;
-  margin-left: 3%;
+  padding: 10px 15px;
   border-radius: 100px;
   font-size: 14px;
   font-weight: 700;
   background: transparent;
-  letter-spacing: 0px;
   text-transform: uppercase;
   border: 2px solid #3b21a0;
+  margin-top: 9px;
+}
+.loginbutton {
+  background: transparent;
+  padding: 10px 15px;
+  border: 2px solid #3b21a0;
+  margin-right: 10px;
+  border-radius: 100px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.loginbutton a {
+  color: #3b21a0;
+}
+
+.loginbutton:hover, .loginbutton:hover a {
+  background: #3b21a0;
+  color: white;
 }
 
 .button-new-post:hover,
@@ -175,11 +187,18 @@ header {
 .usuario-logeado {
   line-height: 60px;
   text-align: right;
-  width: 77%;
-  padding-right: 10px;
+  width: 92%;
   order: 3;
   font-size: 14px;
   font-weight: 600;
+  padding-right: 30px;
+}
+.nuevo-post {
+  text-align: right;
+  order: 2;
+  font-weight: 600;
+  margin-left: 3%;
+  width: 13%;
 }
 .avatar-header {
   width: 40px;

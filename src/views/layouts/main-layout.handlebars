@@ -18,12 +18,18 @@
         <div class="logo">
             <a href="/"><i class="fab fa-node-js"></i></a>
         </div>
-        <div class="button-new-post">
-            <a href="/nuevo"><i class="fas fa-bug"></i> Nuevo Tema</a>
+        <div class="nuevo-post">
+         {{#if userInfo}}
+        <div class="button-new-post"><a href="/nuevo"><i class="fas fa-bug"></i> Nuevo Tema</a></div>
+        {{else}}{{/if}}
         </div>
         <div class="usuario-logeado">
-            <img src="https://pbs.twimg.com/profile_images/633758246906388480/6s9zF7az_400x400.jpg"
-                class="avatar-header"> <i class="far fa-user"></i> {{this.usuario}} - {{this.avatar}}
+            {{#if userInfo}}
+            <img src="{{userInfo.userAvatar}}"
+                class="avatar-header"> <i class="far fa-user"></i> {{userInfo.userUsuario}} 
+                {{else}}
+                <div><button class="loginbutton"><a href="/login"><i class="fas fa-sign-in-alt"></i> Login</a></button><button class="loginbutton"><a href="/registrarse"><i class="fas fa-user-plus"></i> Registrarse</a></button></div>
+                {{/if}}
         </div>
     </header>
     <section class="menu-costado">
