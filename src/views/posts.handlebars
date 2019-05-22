@@ -30,7 +30,7 @@
 
 
 
-
+{{#if userInfo}}
 <div class="form-cooment">
   <div class="thead">Deja tu comentario</div>
   <form action="/crearnuevo/comentario" method="post">
@@ -50,3 +50,8 @@
     </div>
   </form>
 </div>
+{{else}}
+  <div class="mensaje-nologeado">
+    <h1>Hola para comentar necesitas estar logeado, Registrate!</h1>
+  </div>
+  {{/if}}

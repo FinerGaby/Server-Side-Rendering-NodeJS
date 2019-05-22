@@ -200,6 +200,28 @@ header {
   margin-left: 3%;
   width: 13%;
 }
+.mensaje-nologeado {
+  background: white;
+  padding: 20px;
+  font-size: 13px;
+  border: 1px solid #d9d9d9;
+   box-shadow: 1px 1px 15px #d9d9d9;
+  margin-top: 15px;
+  border-top: 10px solid #3b21a0;
+  border-left: none;
+  border-right: none;
+}
+.mensajito-no {
+  font-size: 12px;
+  background: #d6eba5;
+  padding: 15px 10px;
+  margin-bottom: 10px;
+  color: #3b533b;
+  font-weight: bold;
+  box-shadow: 1px 1px 1px inset #f6f465;
+  border: 1px solid #b4ce79;
+}
+
 .avatar-header {
   width: 40px;
   height: 40px;
@@ -415,6 +437,32 @@ nav li i {
   border: 1px solid #d9d9d9;
   padding: 10px;
   font-size: 15px;
+}
+
+
+.nuevoregistrar {
+  background: white;
+  padding: 25px;
+  border: 1px solid #d9d9d9;
+  border-radius: 2px;
+}
+
+.titulo-post h1 {
+  font-size: 15px;
+  margin: 0px;
+  margin-bottom: 5px;
+  color: #454545;
+  font-weight: normal;
+}
+
+.nuevoregistrar .titulo-post input {
+  width: 70%;
+}
+
+.texto-registrar h1 {
+  font-size: 22px;
+  margin-bottom: 25px;
+  font-weight: normal;
 }
 
 .botoncrear input {

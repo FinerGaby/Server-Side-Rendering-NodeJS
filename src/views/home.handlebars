@@ -8,12 +8,25 @@
     <span class="total">mensajes totales</span>
     </div>
       <div>
-  <span class="numbert"><i class="fas fa-users"></i>  1</span><br />
+  <span class="numbert"><i class="fas fa-users"></i>  {{this.numberegister}}</span><br />
     <span class="total">usuario registrados</span>
     </div>
 </article>
 
+<article class="mensaje-welcome">
+    {{#if userInfo}}
+  <div class="mensajito-no">
+    <i class="fas fa-cat"></i> Usted esta logeado y puede acceder a todas las funcionalidad, gracias por probar la App :D
+  </div>
+  {{else}}
+  <div class="mensajito-no">
+    <i class="fas fa-mug-hot"></i> Hola para acceder a todas las funcionalidad tienes que registrarte
+  </div>
+  {{/if}}
+</article>
 
+
+<article class="posteos">
 <div class="thead">Preguntas e Dudas</div>
 <div class="todo-posts">
 {{#each usersreverse}}
@@ -30,12 +43,11 @@
   </ul>
 </div>
   {{#if userInfo}}
-<div class="editar"><a href="/editar/{{this._id}}"><i class="fas fa-edit"></i></a></div>
- {{else}}
-               testest
-                {{/if}}
+  <div class="editar"><a href="/editar/{{this._id}}"><i class="fas fa-edit"></i></a></div>
+ {{else}} t1 {{/if}}
 </div>
 
 
 {{/each}}
 </div>
+</article>
