@@ -33,7 +33,7 @@
 <div class="los-posteos">
 <div class="el-icono"><i class="far fa-file-code"></i></div>
 <div class="titulo"><a href="posts/{{this._id}}">{{this.titulo}}</a><br />
-<span>Por: {{this.userid}} - {{this.fecha}}</span>
+<span>Por: <a href="/perfiles/{{this.idtest}}"> {{this.userid}}</a> - {{this.fecha}}</span>
 </div>
 <div class="cheboxes">
   <ul>
@@ -42,9 +42,6 @@
   {{/each}}
   </ul>
 </div>
-  {{#if userInfo}}
-  <div class="editar"><a href="/editar/{{this._id}}"><i class="fas fa-edit"></i></a></div>
- {{else}} t1 {{/if}}
 </div>
 
 

@@ -46,24 +46,15 @@ a {
   width: 100%;
   border: 1px solid #e9e9e9;
 }
-.editar {
-  background: #3b21a0;
-  line-height: 45px;
-  padding: 0px 14px;
-  font-size: 21px;
-  text-indent: 2px;
-  border-radius: 4px;
-  height: min-content;
-}
+
 
 .mini-titulo {
   padding: 7px;
-  font-weight: bold;
+  font-weight: normal;
   border-bottom: 1px solid #d9d9d9;
   margin-bottom: 5px;
   font-size: 13px;
-  text-transform: uppercase;
-  color: #3b21a0;
+  color: #999999;
 }
 .form-cooment {
   background: white;
@@ -76,19 +67,27 @@ a {
   margin-top: 10px;
   margin-bottom: 20px;
 }
+
+.editar {
+  font-size: 15px;
+  text-indent: 2px;
+  height: min-content;
+  margin-top: 11%;
+  font-weight: bold;
+  width: max-content;
+  text-transform: uppercase;
+}
+
 .editar a {
-  color: white;
+  color: #3b21a0;
 }
 
 .thead {
   font-size: 17px;
-  font-weight: bold;
   color: white;
   margin-bottom: 15px;
   background: #3b21a0;
   padding: 13px 15px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
   border-bottom: 4px solid #d9d9d9;
   box-shadow: 1px 1px 15px #d9d9d9;
 }
@@ -231,7 +230,7 @@ header {
   border: 1px solid #d9d9d9;
   padding: 2px;
 }
-section {
+.menu-costado {
   display: flex;
   margin: 0px;
   padding: 0px;
@@ -475,6 +474,38 @@ nav li i {
   padding: 15px 20px;
   font-weight: bold;
   text-transform: uppercase;
+}
+
+.perfiles-container {
+  background: white;
+  padding: 20px;
+  border: 1px solid #d9d9d9;
+  display: flex;
+}
+
+.datos-perfil {
+  margin-left: 20px;
+}
+
+.datos-perfil div {
+  font-size: 45px;
+  font-weight: bold;
+  color: #3b21a0;
+}
+
+.datos-perfil span {
+  font-size: 20px;
+}
+
+.avatar-perfil img {
+  width: 200px;
+  height: 200px;
+}
+
+.avatar-perfil {
+  background: white;
+  padding: 5px;
+  border: 1px solid #c9c9c9;
 }
 
 footer {

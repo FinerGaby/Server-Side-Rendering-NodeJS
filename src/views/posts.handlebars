@@ -4,11 +4,14 @@
     <div class="avatar2">
       <img class="avatar" src="{{post.avatar}}" />
     </div>
-    {{post.userid}}
+    <a href="/perfiles/{{post.idtest}}">{{post.userid}}</a>
   </div>
   <div class="texto-post">
     <div class="mini-titulo">{{post.titulo}}</div>
     {{post.texto}}
+     {{#if userInfo}}
+  <div class="editar"><a href="/editar/{{post._id}}"><i class="fas fa-edit"></i> Editar</a></div>
+ {{else}} t1 {{/if}}
   </div>
 </div>
 

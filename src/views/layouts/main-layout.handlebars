@@ -26,7 +26,7 @@
         <div class="usuario-logeado">
             {{#if userInfo}}
             <img src="{{userInfo.userAvatar}}"
-                class="avatar-header"> <i class="far fa-user"></i> {{userInfo.userUsuario}} - <a href="/logout">Deslogearse</a>
+                class="avatar-header"> <i class="far fa-user"></i> {{userInfo.userUsuario}} - <a href="/perfiles/{{userInfo.userId}}">Mi perfil</a> - <a href="/logout">Deslogearse</a>
                 {{else}}
                 <div><button class="loginbutton"><a href="/login"><i class="fas fa-sign-in-alt"></i> Login</a></button><button class="loginbutton"><a href="/registrarse"><i class="fas fa-user-plus"></i> Registrarse</a></button></div>
                 {{/if}}
@@ -38,10 +38,7 @@
                 <ul>
                     <li><i class="fas fa-home"></i><br /> Home</li>
                     <li><i class="fas fa-users"></i><br /> Miembros</li>
-                    <li><i class="fas fa-calendar-alt"></i><br /> Calendario</li>
                     <li><i class="fas fa-book-medical"></i><br /> Guias</li>
-                    <li><i class="fas fa-coffee"></i><br /> Coffe</li>
-                    <li><i class="far fa-envelope"></i><br /> Contacto</li>
                 </ul>
             </nav>
         </article>

@@ -19,14 +19,22 @@ router.get("/editar/:id", function(req, res) {
       coleccion.findOne(
         { _id: new mongodb.ObjectID(req.params.id) },
         (err, posts) => {
-          // console.log(id)
-          // console.log(posts);
-          // console.log(err)
+          let userInfo
+            if (req.session.userId !== undefined) {
+                userInfo = {
+                    userId: req.session.userId,
+                    userUsuario: req.session.userUsuario,
+                    userAvatar: req.session.userAvatar
+                  }
           res.render("editar", {
+            userInfo: userInfo,
             id: id,
             posts: posts
           });
-        }
+        } else {
+          // Vista user no logeado
+        res.redirect("/login");
+        }}
       );
     });
   });
