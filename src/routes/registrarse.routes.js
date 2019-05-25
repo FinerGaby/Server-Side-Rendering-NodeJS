@@ -3,8 +3,17 @@ const { client, mongodb }  = require('../database');
 const router = express.Router();
 
 var multer  = require('multer')
-var upload = multer({ dest: './public/avatar' })
 
+var storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, 'src/public/avatar')
+  },
+  filename: function (req, file, cb) {
+      cb(null, file.originalname);        
+  }
+})
+
+var upload = multer({ storage: storage })
 
 // Ruta registrarse renderizo los form 
 router.get("/registrarse", function(req, res) {
@@ -14,14 +23,14 @@ router.get("/registrarse", function(req, res) {
 //Ruta registrarse form - obtengo los datos recibidos de los <form>
 router.post("/registrarusuario", upload.single('avatar'), function(req, res) {
 
-  console.log(req.file.avatar);
+  console.log(req.file.filename);
 
 // guardo todos los datos recibidos en una variable
   const reqBodys = {
     usuario: req.body.usuario.toUpperCase(),
     email: req.body.email.toUpperCase(),
     password: req.body.password,
-    avatar: req.file.avatar
+    avatar: req.file.filename
   };
 
   // conecto al cliente
