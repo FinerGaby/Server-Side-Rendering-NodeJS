@@ -2,7 +2,7 @@
   <div class="texto-registrar">
     <h1>Hola aqui te puedes registrar y acceder a todas las funcionalidades de la aplicacion</h1>
   </div>
-  <form action="/registrarusuario" method="post">
+  <form action="/registrarusuario" method="post" enctype="multipart/form-data">
     <div class="titulo-post">
       <h1>Nombre del usuario:</h1>
       <input type="text" name="usuario" id="usuario" required>
@@ -17,7 +17,7 @@
     </div>
      <div class="titulo-post">
        <h1>Avatar URL:</h1>
-      <input type="text" name="avatar" id="avatar">
+       <input type="file" name="avatar" />
     </div>
     <div class="botoncrear"> <input type="submit" value="Crear">
   </form>

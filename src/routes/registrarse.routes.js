@@ -2,20 +2,26 @@ const express = require('express');
 const { client, mongodb }  = require('../database');
 const router = express.Router();
 
+var multer  = require('multer')
+var upload = multer({ dest: './public/avatar' })
+
+
 // Ruta registrarse renderizo los form 
 router.get("/registrarse", function(req, res) {
     res.render("registrar");
 });
 
 //Ruta registrarse form - obtengo los datos recibidos de los <form>
-router.post("/registrarusuario", function(req, res) {
+router.post("/registrarusuario", upload.single('avatar'), function(req, res) {
+
+  console.log(req.file.avatar);
 
 // guardo todos los datos recibidos en una variable
   const reqBodys = {
     usuario: req.body.usuario.toUpperCase(),
     email: req.body.email.toUpperCase(),
     password: req.body.password,
-    avatar: req.body.avatar
+    avatar: req.file.avatar
   };
 
   // conecto al cliente
