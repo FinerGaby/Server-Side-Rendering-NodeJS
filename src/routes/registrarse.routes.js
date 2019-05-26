@@ -23,7 +23,7 @@ router.get("/registrarse", function(req, res) {
 //Ruta registrarse form - obtengo los datos recibidos de los <form>
 router.post("/registrarusuario", upload.single('avatar'), function(req, res) {
 
-  console.log(req.file.filename);
+  console.log(req.body);
 
 // guardo todos los datos recibidos en una variable
   const reqBodys = {
@@ -33,17 +33,33 @@ router.post("/registrarusuario", upload.single('avatar'), function(req, res) {
     avatar: req.file.filename
   };
 
-  // conecto al cliente
-  client.connect(function(error, client) {
+  const nombrevalidar = req.body.usuario.toUpperCase();
+
+    // conecto al cliente
+    client.connect(function(error, client) {
     // ingreso la database que usare
     const db = client.db("dbPrincipal");
     // ingreso la coleccion que usare
     const coleccion = db.collection("usuarios");
-    // obtengo la coleccion con "insertOne" inserto a MongoDB
-    coleccion.insertOne(reqBodys, (err, result) => {
+    //uso devuelta la coleccion de usuario para validar
+    const coleccionvalidar = db.collection("usuarios");
+
+    // filtro si encuentro algun usuario con el mismo nombre me traigo ese array
+    coleccionvalidar.find({ usuario: nombrevalidar }).toArray(function(err, datavalidacion) {
+      // si encuentro un usuario con el mismo nombre mando un console.log si no inserto los nuevos datos del usuario en else
+      if (datavalidacion.length == 1) {
+       let errorvalidacion = `Error nombre de usuario utilizado:  ${req.body.usuario}`;
+        res.render("registrar", {
+          error: errorvalidacion
+        });
+      } else {
+      // obtengo la coleccion con "insertOne" inserto a MongoDB
+        coleccion.insertOne(reqBodys, (err, result) => {
         // redirect al login para logearse
-      res.redirect("/login");
-    });
+          res.redirect("/login");
+        });
+      }
+    })
   });
 });
 
