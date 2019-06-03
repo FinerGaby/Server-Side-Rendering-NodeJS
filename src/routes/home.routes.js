@@ -18,13 +18,13 @@ router.get("/", function(req, res) {
       // Obtenemos la coleccion - find() filtrado - toArray transformamos en un array
       coleccion3.find().toArray(function(err, registrados) {
       coleccion2.find().toArray(function(err, comment) {
-        coleccion.find().toArray(function(err, users) {
+        coleccion.find().toArray(function(err, post) {
           // Obtener total de registrados - comentarios - post
           const numberegister = registrados.length;
           const numbercomment = comment.length;
-          const numberpost = users.length;
+          const numberpost = post.length;
           // Obtengo el array de post por orden de creacion
-          const usersreverse = users.reverse();
+          const postreverse = post.reverse();
           let userInfo;
           // Validamos si el usuario esta logeado con express session
           if (req.session.userId !== undefined) {
@@ -41,7 +41,7 @@ router.get("/", function(req, res) {
             numberegister: numberegister,
             numbercomment: numbercomment,
             numberpost: numberpost,
-            usersreverse: usersreverse
+            postreverse: postreverse
           });
         } else {
           // Vista user no logeado
@@ -50,7 +50,7 @@ router.get("/", function(req, res) {
             numberegister: numberegister,
             numbercomment: numbercomment,
             numberpost: numberpost,
-            usersreverse: usersreverse
+            postreverse: postreverse
           });
       
         }
