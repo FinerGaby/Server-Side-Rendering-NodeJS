@@ -9,7 +9,7 @@ var storage = multer.diskStorage({
     cb(null, 'src/public/avatar')
   },
   filename: function (req, file, cb) {
-      cb(null, req.body.usuario.toUpperCase + file.originalname);        
+      cb(null, req.body.usuario.toUpperCase() + file.originalname);        
   }
 })
 
